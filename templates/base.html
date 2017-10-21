@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  {% block title %}
+  <title>{{ config.title }}</title>
+  {% endblock title %}
   {% if ex.vireframe_bulma %}
   <link rel="stylesheet" href="{{ex.vireframe_bulma | safe}}">
   <link rel="stylesheet" href="{{ex.vireframe_icons | safe}}">
@@ -18,7 +20,21 @@
   {% endif %}
 </head>
 <body>
-  {% block content %}
-  {% endblock content %}
+  {% block navbar %}
+    {% if ex.vireframe_navbar %}
+    <nav class="navbar" role="navigation">
+      <div class="navbar-brand">
+        <a href="{{config.base_url | safe}}" class="navbar-item">
+          <span>{{ config.title }}</span>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start"></div>
+        <div class="navbar-end"></div>
+      </div>
+    </nav>
+    {% endif %}
+  {% endblock navbar %}
+  {% block content %}{% endblock content %}
 </body>
 </html>

@@ -19,6 +19,8 @@ min_version = "0.1"
   vireframe_vue_plugins = [
     "https://unpkg.com/vuex"
   ]
+  vireframe_navbar = true
+  vireframe_sidebar = "static"
 
 # The theme author info: you!
 [author]

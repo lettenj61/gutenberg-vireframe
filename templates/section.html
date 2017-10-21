@@ -1,8 +1,17 @@
 {% extends "base.html" %}
+{% set ex = config.extra %}
+{% block title %}
+  <title>{{ section.title }} | {{ config.title }}</title>
+{% endblock title %}
 {% block content %}
 <section class="section">
   <div class="container is-fluid">
     <div class="columns">
+      {% if ex.vireframe_sidebar is defined %}
+        {% if ex.vireframe_sidebar == "widget" %}
+        {% elif ex.vireframe_sidebar == "static" %}
+        {% endif %}
+      {% endif %}
       <div class="column">
         <div class="content">
           {{ section.content | safe }}
