@@ -1,0 +1,12 @@
+{% macro message(class, title, body) %}
+<article class="message{% if class %} {{ class }}{% endif %}">
+  {% if title %}
+  <div class="message-header">
+    {{ title }}
+  </div>
+  {% endif %}
+  <div class="message-body">
+    {{ body | safe }}
+  </div>
+</article>
+{% endmacro message %}

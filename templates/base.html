@@ -1,0 +1,24 @@
+{% set ex = config.extra %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  {% if ex.vireframe_bulma %}
+  <link rel="stylesheet" href="{{ex.vireframe_bulma | safe}}">
+  <link rel="stylesheet" href="{{ex.vireframe_icons | safe}}">
+  {% endif %}
+  {% if ex.vireframe_vue %}
+  <script src="{{ex.vireframe_vue | safe}}"></script>
+  {% for plugin in ex.vireframe_vue_plugins %}
+    <script src="{{plugin | safe}}"></script>
+  {% endfor %}
+  {% endif %}
+</head>
+<body>
+  {% block content %}
+  {% endblock content %}
+</body>
+</html>

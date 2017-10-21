@@ -6,20 +6,21 @@ homepage = "https://github.com/lettenj61/vireframe/"
 # The minimum version of Gutenberg required
 min_version = "0.1"
 
-# Any variable there can be overriden in the end user `config.toml`
-# You don't need to prefix variables by the theme name but as this will
-# be merged with user data, some kind of prefix or nesting is preferable
-# Use snake_casing to be consistent with the rest of Gutenberg
-[extra.vireframe]
-bulmaswatch = { href = "https://unpkg.com/bulmaswatch/materia/bulmaswatch.min.css" }
-
-[extra.vireframe.vue]
-  src = "https://unpkg.com/vue"
-  plugins = [
+# Bulma configurations
+[extra]
+  # Link to bulma stylesheet itself
+  vireframe_vulma = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css"
+  # Link to icon fonts used with bulma
+  vireframe_icons = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  # Source URL for Vue.js script
+  vireframe_vue = "https://unpkg.com/vue"
+  # Vue plugins to load into rendered HTML headers
+  # Note that they will not installed automatically, you must set up them in your app script.
+  vireframe_vue_plugins = [
     "https://unpkg.com/vuex"
   ]
 
 # The theme author info: you!
 [author]
 name = "lettenj61"
-homepage = "https://github.com/lettenj61/
+homepage = "https://github.com/lettenj61/"
