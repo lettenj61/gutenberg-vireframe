@@ -1,8 +1,32 @@
 {% extends "base.html" %}
+{% import "macros/strings.html" as strings %}
 {% set ex = config.extra %}
 {% block title %}
   <title>{{ section.title }} | {{ config.title }}</title>
 {% endblock title %}
+{% block navbar %}
+{% if ex.vireframe_navbar %}
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a href="{{config.base_url | safe}}" class="navbar-item">
+      <span>{{ config.title }}</span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start">
+    {% if ex.vireframe_menus is defined %}
+    {% for menu in ex.vireframe_menus %}
+      {% set cur = strings::concat(a=menu, b="/_index.md") %}
+      {% set ref = get_section(path=cur) %}
+      <a href="{{ref.permalink | safe}}" class="navbar-item">{{ ref.title }}</a>
+    {% endfor %}
+    {% endif %}
+    </div>
+    <div class="navbar-end"></div>
+  </div>
+</nav>
+{% endif %}
+{% endblock navbar %}
 {% block content %}
 <section class="section">
   <div class="container is-fluid">
